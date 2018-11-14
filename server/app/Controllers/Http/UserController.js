@@ -10,7 +10,6 @@ class UserController {
         return token;
     }
 
-
     async register({ request }){
         const { email, password } = request.all();
         const user = await User.create({
@@ -20,7 +19,6 @@ class UserController {
         });
         return user;
     }
-
 }
 
 module.exports = UserController
