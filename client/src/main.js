@@ -1,9 +1,15 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
-import store from './store';
+import store from './store/index';
+
+import { sync } from 'vuex-router-sync';
+import Vuetify from 'vuetify';
 
 Vue.config.productionTip = false;
+
+Vue.use(Vuetify);
+sync(store, router);
 
 new Vue({
   router,
