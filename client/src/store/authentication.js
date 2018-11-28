@@ -10,6 +10,12 @@ export default {
     token: null,
   },
   actions: {
+    logout({
+      commit
+    }) {
+      commit('setToken', null);
+      router.push('/login');
+    },
     register({
       commit,
       state
