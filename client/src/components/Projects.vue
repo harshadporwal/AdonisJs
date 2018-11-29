@@ -5,6 +5,7 @@
         :isEditMode="project.isEditMode"
         :title="project.title"
         @onInput="setProjectTitle({ project, title: $event})"
+        @onClick="projectClicked(project)"
         @onEdit="setEditMode(project)"
         @onSave="saveProject(project)"
         @onDelete="deleteProject(project)"
@@ -36,18 +37,24 @@ export default {
     ...mapState("projects", ["newProjectName", "projects"])
   },
   methods: {
+    projectClicked(project) {
+      this.setCurrentProject(project);
+      this.fetchTasksForProject(project);
+    },
     ...mapMutations("projects", [
       "setNewProjectName",
       "setEditMode",
       "unSetEditMode",
-      "setProjectTitle"
+      "setProjectTitle",
+      "setCurrentProject"
     ]),
     ...mapActions("projects", [
       "createProject",
       "fetchProjects",
       "saveProject",
       "deleteProject"
-    ])
+    ]),
+    ...mapActions("tasks", ["fetchTasksForProject"])
   }
 };
 </script>
