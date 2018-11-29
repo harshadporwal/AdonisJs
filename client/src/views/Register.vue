@@ -23,7 +23,7 @@
           <v-alert type="error" :value="registerError">{{ registerError }}</v-alert>
 
           <v-btn color="green" dark @click="register">
-            <v-icon>account_circle</v-icon>Register
+            <v-icon class="mr-2">account_circle</v-icon>Register
           </v-btn>
         </v-flex>
       </v-layout>
