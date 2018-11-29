@@ -37,7 +37,7 @@ export default {
           commit('setProjects', data);
         });
     },
-    createProjects({
+    createProject({
       commit,
       state
     }) {
