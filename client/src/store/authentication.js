@@ -17,7 +17,7 @@ export default {
       commit
     }) {
       commit('setToken', null);
-      router.push('/');
+      router.push('/login');
     },
 
     login({
