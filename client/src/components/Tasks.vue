@@ -8,7 +8,11 @@
         @onEdit="setEditMode(task)"
         @onSave="saveTask(task)"
         @onDelete="deleteTask(task)"
-      />
+      >
+        <v-icon
+          @click="checkClicked(task)"
+        >{{ task.completed ? 'check_box' : 'check_box_outline_blank'}}</v-icon>
+      </EditableRecord>
     </div>
     <CreateRecord
       placeholder="I need to..."
@@ -37,8 +41,13 @@ export default {
     ...mapMutations("tasks", [
       "setNewTaskName",
       "setEditMode",
-      "setTaskDescription"
-    ])
+      "setTaskDescription",
+      "toggleCompleted"
+    ]),
+    checkClicked(task) {
+      this.toggleCompleted(task);
+      this.saveTask(task);
+    }
   }
 };
 </script>
